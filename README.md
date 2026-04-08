@@ -12,12 +12,12 @@ Este foi projetado epara garantir a identificação dos participantes, o registr
 
 ### Integrantes
 
-Bruno de Souza Mareto
-Fabricio dos Santos Silva
-Gabriela Braido Gonçalves
-Isaque Ryo Cruz Tanno
-Maria Eduarda Goncalves Carreiro
-Thomas Lazarini Wecke
+Bruno de Souza Mareto<br>
+Fabricio dos Santos Silva<br>
+Gabriela Braido Gonçalves<br>
+Isaque Ryo Cruz Tanno<br>
+Maria Eduarda Goncalves Carreiro<br>
+Thomas Lazarini Wecke<br>
 
 ### Tecnologias Utilizadas
 
@@ -29,4 +29,35 @@ Gerenciamento do Projeto: Github
 
 ### Instruções de Uso
 
-(texto temporário)
+Primeira Etapa (1.0):<br>
+
+Aparecera as seguintes opçoes:<br>
+Gerenciar eleitores<br>
+Resultados e Auditoria<br>
+Iniciar Sistema de Votação<br>
+Sair<br>
+
+Em caso de escolha 1 (1.1):<br>
+Caso a primeira opção foi escolhida, aparecera as seguintes opçoes:
+Cadastro dos Eleitos<br>
+Editar dado dos Eleitores<br>
+Remover Eleitores<br>
+Buscar Eleitor por título/cpf<br>
+Listagem de Eleitores<br>
+Voltar<br>
+
+Em caso de escolha 2(1.2):<br>
+Resultados da Votação<br>
+Auditoria: Logs de Ocorrência<br>
+Auditoria: Protocolos de Votação<br>
+Voltar<br>
+
+Em caso de escolha 3(1.3):<br>
+INICIAR SISTEMA DE VOTAÇÃO<br>
+Login<br>
+Voltar<br>
+
+Em caso de escolha 4(1.4):<br>
+O sistema automaticamente irá se retirar
+
+
