@@ -53,12 +53,14 @@ while(escolha1!=3):
                             print("3 - Voltar")
                             escolha3= menu.number_option_input(1,3)
                     case 3:
-                        while(escolha3!=3): # Resultados da Votação
+                        while(escolha3!=5): # Resultados da Votação
                             escolha3=-1
                             print("\nResultados da Votação:")
-                            print("1")
-                            print("2")
-                            print("3 - Voltar")
-                            escolha3= menu.number_option_input(1,3)
+                            print("1 - Validação de integridade")
+                            print("2 - Boletim de Urna")
+                            print("3 - estatistica de comparecimento")
+                            print("4 - Votos por partido")
+                            print("5 - Voltar")
+                            escolha3= menu.number_option_input(1,5)
         case 3:
             print("\nSaindo do Sistema...")
