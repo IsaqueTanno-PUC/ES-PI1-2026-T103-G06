@@ -2,23 +2,22 @@ import menu
 escolha1,escolha2,escolha3=-1,-1,-1
 
 
-while(escolha1!=4):
+while(escolha1!=3):
     escolha1=-1
     # Menu HOME (principal)
     print("\nSISTEMA DE VOTAÇÃO LAD.Py\n")
 
-    print("1 - Gerenciar Eleitores")
-    print("2 - Resultados e Auditoria")
-    print("3 - Iniciar Sistema de Votação")
-    print("4 - Sair")
-    escolha1 = menu.number_option_input(1,4)
-
+    print("1 - Gerenciamento")
+    print("2 - Sistema de Votação")
+    print("3 - Sair")
+    escolha1 = menu.number_option_input(1,3)
+    escolha2=-1
     match escolha1:
         case 1:
             while(escolha2!=6):
                 escolha2=-1
-                # Gerenciamento de Eleitores
-                print("\nGERENCIAMENTO DE ELEITORES\n")
+                # Gerenciamento
+                print("\nGERENCIAMENTO\n")
                 print("1 - Cadastro de Eleitores")
                 print("2 - Editar dados de Eleitoes")
                 print("3 - Remover Eleitor")
@@ -29,20 +28,37 @@ while(escolha1!=4):
         case 2:
             while(escolha2!=4):
                 escolha2=-1
-                # Resultados e Auditoria
-                print("\nRESULTADOS E AUDITORIA\n")
-                print("1 - Resultados da Votação")
-                print("2 - Auditoria: Logs de Ocorrência")
-                print("3 - Auditoria: Protocolos de Votação")
+                # Sistema de Votação
+                print("\nSistema de Votação\n")
+                print("1 - Abrir Sistema de Votação")
+                print("2 - Auditoria do Sistema")
+                print("3 - Resultados da Votação")
                 print("4 - Voltar")
                 escolha2 = menu.number_option_input(1,4)
+                escolha3 = -1
+                match escolha2:
+                    case 1:
+                        while(escolha3!=2):
+                            escolha3=-1
+                            print("\nSistema de Votação")
+                            print("1 - Votar")
+                            print("2 - Fechar Sistema de Votação")
+                            escolha3= menu.number_option_input(1,2)
+                    case 2:
+                        while(escolha3!=3):
+                            escolha3=-1
+                            print("\nAuditoria")
+                            print("1 - Logs de Ocorrência")
+                            print("2 - Protocolos de Votação")
+                            print("3 - Voltar")
+                            escolha3= menu.number_option_input(1,3)
+                    case 3:
+                        while(escolha3!=3): # Resultados da Votação
+                            escolha3=-1
+                            print("\nResultados da Votação:")
+                            print("1")
+                            print("2")
+                            print("3 - Voltar")
+                            escolha3= menu.number_option_input(1,3)
         case 3:
-            while(escolha2!=2):
-                escolha2=-1
-                # Iniciar Sistema de Votação
-                print("\nINICIAR SISTEMA DE VOTAÇÃO\n")
-                print("1 - Login")
-                print("2 - Voltar")
-                escolha2 = menu.number_option_input(1,2)
-        case 4:
             print("\nSaindo do Sistema...")
