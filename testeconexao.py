@@ -1,9 +1,8 @@
 from conexaoBD import conectar
-import os
 
 conexao, cursor = conectar()
 
 if conexao:
-    print("conectado com sucesso")
+    print("conectado com sucesso!")
 else:
-    print("nao foi possivel conectar")
+    print("nao foi possivel conectar ao banco.")
