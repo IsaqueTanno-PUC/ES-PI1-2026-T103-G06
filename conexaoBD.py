@@ -1,13 +1,17 @@
 import mysql.connector
-import os
-from dotenv import load_dotenv
 
-load_dotenv()
-
-def conectar ():
-    return mysql.connector.connect(
-        host=os.getenv("BD_HOST"),
-        user=os.getenv("BD_USER"),
-        password=os.getenv("BD_PASSWORD"),
-        database=os.getenv("BD_NOME")
-    )
+def conectar():
+    try:
+        conexao = mysql.connector.connect(
+            host="localhost",
+            database="sistema_votacao",
+            user="root",
+            password="Fabri014*"
+        )
+        if conexao.is_connected():
+            print ("Conexao realizada!")
+            cursor = conexao.cursor()
+            return conexao, cursor
+    except Exception as erro:
+        print ("Nao foi possivel conectar ao banco. ERRO:", erro)
+        return None, None
