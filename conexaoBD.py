@@ -9,7 +9,7 @@ def conectar():
             password="Fabri014*"
         )
         if conexao.is_connected():
-            print ("Conexao realizada!")
+            print ("Conexao com o banco realizada!")
             cursor = conexao.cursor()
             return conexao, cursor
     except Exception as erro:
