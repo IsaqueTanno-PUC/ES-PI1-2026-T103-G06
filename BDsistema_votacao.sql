@@ -9,7 +9,8 @@ CREATE TABLE eleitores (
     eleitor_cpf VARCHAR (11) UNIQUE NOT NULL,
     eleitor_mesario BOOL DEFAULT FALSE NOT NULL,
     eleitor_horavoto DATETIME,
-    eleitor_chaveacesso CHAR (7)
+    eleitor_chaveacesso CHAR (7),
+    eleitor_situacao BOOL DEFAULT FALSE NOT NULL /*SE A PESSOA JÁ VOTOU OU NÃO
 );
 
 CREATE TABLE candidatos (
