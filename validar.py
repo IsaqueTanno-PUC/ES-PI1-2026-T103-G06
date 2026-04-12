@@ -35,7 +35,7 @@ def cpf(cpf):
             if (soma%11) < 2:
                 dgtver1=0
             else:
-                dgtver1=11-dgtver1
+                dgtver1=11-(soma %11)
             
             # Cálculo dígito 2
             cont=0
