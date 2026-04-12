@@ -1,6 +1,7 @@
 import conexaoBD
 from conexaoBD import conectar
 from validar import cpf
+from validacao_titulo import validar_titulo
 
 def cadastrar_eleitor():
     try:
@@ -9,8 +10,15 @@ def cadastrar_eleitor():
 
         print("\n=== CADASTRO DE ELEITOR ===")
         eleitor_nome = input ("Digite seu nome: ")
-        eleitor_titulo = input ("Digite seu titulo de eleitor: ")
-        #essa parte depois do input de cpf "remove" os acentos do CPF (caso tiver) e deixa sem pontuacao para evitar parar o programa
+
+        #verificação e validação do titulo de eleitor do usuario:
+        eleitor_titulo = input ("Digite seu titulo de eleitor: ").replace(".", "").replace("-", "")
+        if not validar_titulo(eleitor_titulo):
+            print ("Titulo de Eleitor inválido!")
+            return
+
+        #essa parte depois do input de cpf "remove" os acentos do CPF (caso tiver)
+        #e deixa sem pontuacao para evitar parar o programa também faz a validação do CPF do usuario
         eleitor_cpf = input ("Digite seu CPF: ").replace(".", "").replace("-", "")
         if cpf(eleitor_cpf):
             print ("CPF inválido!")
