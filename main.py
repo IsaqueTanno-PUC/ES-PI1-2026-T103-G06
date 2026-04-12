@@ -1,4 +1,6 @@
 import menu
+import conexaoBD
+import cadastro_eleitores
 escolha1,escolha2,escolha3=-1,-1,-1
 
 
@@ -25,6 +27,11 @@ while(escolha1!=3):
                 print("5 - Listagem de Eleitores")
                 print("6 - Voltar")
                 escolha2 = menu.number_option_input(1,6)
+                #após o usuario escolher 1 (cadastro de eleitor)
+                #essa opcao leva para cadastro_eleitores onde é possivel realizar o cadastro de um novo eleitor
+                if escolha2 ==1:
+                    cadastro_eleitores.cadastrar_eleitor()
+
         case 2:
             while(escolha2!=4):
                 escolha2=-1

@@ -10,8 +10,7 @@ def conectar():
         )
         if conexao.is_connected():
             print ("Conexao com o banco realizada!")
-            cursor = conexao.cursor()
-            return conexao, cursor
+            return conexao
     except Exception as erro:
         print ("Nao foi possivel conectar ao banco. ERRO:", erro)
         return None, None
