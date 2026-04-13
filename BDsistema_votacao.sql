@@ -5,7 +5,7 @@ USE sistema_votacao;
 CREATE TABLE eleitores (
 	eleitor_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     eleitor_nome VARCHAR (50) NOT NULL,
-    eleitor_titulo VARCHAR (12) NOT NULL,
+    eleitor_titulo VARCHAR (12) UNIQUE NOT NULL,
     eleitor_cpf VARCHAR (11) UNIQUE NOT NULL,
     eleitor_mesario BOOL DEFAULT FALSE NOT NULL,
     eleitor_horavoto DATETIME,

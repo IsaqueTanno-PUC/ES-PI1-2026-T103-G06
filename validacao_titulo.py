@@ -16,10 +16,11 @@ def validar_titulo(titulo):
 
     resto = soma % 11
 
-    if resto < 2:
+    # Ajustei aqui para incluir a definição do dígito 1 correto
+    if resto == 10:
         dig1 = 0
     else:
-        dig1 = 11 - resto
+        dig1 = resto
 
     #Segundo dígito verificador
     soma = 0
@@ -28,10 +29,11 @@ def validar_titulo(titulo):
 
     resto = soma % 11
 
-    if resto < 2:
+    # Aqui também ajustei a definição do dígito 2
+    if resto == 10:
         dig2 = 0
     else:
-        dig2 = 11 - resto
+        dig2 = resto
 
     # Validação final
     return dig1 == int(titulo[10]) and dig2 == int(titulo[11])

@@ -1,9 +1,20 @@
 import conexaoBD
 from conexaoBD import conectar
-from validar import cpf
-from validacao_titulo import validar_titulo
+import validar
+import validacao_titulo
 
 def cadastrar_eleitor():
+    """
+    Realiza a leitura dos dados do eleitor, passando pelas validações do título/cpf e cria uma chave de acesso única em caso positivo de cadastro
+    
+    Args:
+        Input do usuário dentro da função
+
+    Returns:
+        Em caso positivo, realiza o cadastro no banco de dados e gera a chave de acesso única
+    
+    """
+
     try:
         conexao = conectar()
         cursor = conexao.cursor()
@@ -13,14 +24,14 @@ def cadastrar_eleitor():
 
         #verificação e validação do titulo de eleitor do usuario:
         eleitor_titulo = input ("Digite seu titulo de eleitor: ").replace(".", "").replace("-", "")
-        if validar_titulo(eleitor_titulo):
+        if validacao_titulo.validar_titulo(eleitor_titulo)==False:
             print ("Titulo de Eleitor inválido!")
             return
 
         #essa parte depois do input de cpf "remove" os acentos do CPF (caso tiver)
         #e deixa sem pontuacao para evitar parar o programa também faz a validação do CPF do usuario
         eleitor_cpf = input ("Digite seu CPF: ").replace(".", "").replace("-", "")
-        if cpf(eleitor_cpf):
+        if validar.cpf(eleitor_cpf)==False:
             print ("CPF inválido!")
             return
 
