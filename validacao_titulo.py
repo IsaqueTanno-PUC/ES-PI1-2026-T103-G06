@@ -1,40 +1,39 @@
 def validar_titulo(titulo):
-    if titulo.isdigit() or len(titulo) != 12:
-        return False
-    return True
+    titulo = str(titulo)
 
+    #Validação inicial
+    if not titulo.isdigit() or len(titulo) != 12:
+        return False
+
+    #Evita números repetidos
     if titulo == titulo[0] * 12:
         return False
 
-    #Primeiro digito verificador
+    #Primeiro dígito verificador
     soma = 0
     for i in range(8):
-        soma += int(titulo[i])*(i+2)
+        soma += int(titulo[i]) * (i + 2)
 
-    resto=soma%11
+    resto = soma % 11
 
-    if resto==0:
-        dig1=0
-    elif resto==1:
-        dig1=0
+    if resto < 2:
+        dig1 = 0
     else:
-        dig1=11-resto
+        dig1 = 11 - resto
 
-    #Segundo digito verificador
-    soma=0
+    #Segundo dígito verificador
+    soma = 0
     for i in range(8, 11):
-        soma += int(titulo[i])*(i-1)
+        soma += int(titulo[i]) * (i - 1)
 
-    resto=soma%11
+    resto = soma % 11
 
-    if resto==0:
+    if resto < 2:
         dig2 = 0
-    elif resto==1:
-        dig2=0
     else:
-        dig2 = 11-resto
+        dig2 = 11 - resto
 
-    #Validação final
+    # Validação final
     return dig1 == int(titulo[10]) and dig2 == int(titulo[11])
 
     # o calculo para fazer a validação do titulo é bem parecido 
