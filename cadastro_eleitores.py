@@ -13,7 +13,7 @@ def cadastrar_eleitor():
 
         #verificação e validação do titulo de eleitor do usuario:
         eleitor_titulo = input ("Digite seu titulo de eleitor: ").replace(".", "").replace("-", "")
-        if not validar_titulo(eleitor_titulo):
+        if validar_titulo(eleitor_titulo):
             print ("Titulo de Eleitor inválido!")
             return
 
@@ -23,7 +23,13 @@ def cadastrar_eleitor():
         if cpf(eleitor_cpf):
             print ("CPF inválido!")
             return
-        eleitor_mesario = input ("Sera mesario?\n(0)NAO\n(1)SIM\n")
+
+        eleitor_mesario = input("Você será mesário?\n1 - Sim\n0 - Não")
+        while eleitor_mesario not in ["0", "1"]:
+            print("Digite um dos valores: 0 ou 1")
+            eleitor_mesario = input("Você será mesário?\n1 - Sim\n0 - Não")
+
+        eleitor_mesario = int(eleitor_mesario)
 
         sql = """
         INSERT INTO eleitores (eleitor_nome, eleitor_titulo, eleitor_cpf, eleitor_mesario)
