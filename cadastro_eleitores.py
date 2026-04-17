@@ -3,6 +3,7 @@ from conexaoBD import conectar
 import validar
 import validacao_titulo
 import gerar_chave
+import mysql.connector
 
 def cadastrar_eleitor():
     """
@@ -72,8 +73,21 @@ def cadastrar_eleitor():
         print("Eleitor cadastrado com sucesso!")
         print("Sua chave de acesso é:", chaveacesso)
 
+    except mysql.connector.Error as erro:
+        if erro.errno == 1062:
+            texto_erro = str(erro).lower()
+
+            if "cpf" in texto_erro:
+                print("CPF já cadastrado!")
+            elif "titulo" in texto_erro:
+                print("Título de eleitor já cadastrado!")
+            else:
+                print("Dado duplicado já cadastrado!")
+        else:
+            print("Erro no banco:", erro)
+
     except Exception as erro:
-        print("Erro ao cadastrar eleitor:", erro)
+        print("Erro inesperado:", erro)
 
     finally:
         cursor.close()

@@ -6,7 +6,7 @@ def conectar():
             host="localhost",
             database="sistema_votacao",
             user="root",
-            password="Fabri014*z"
+            password="Abacateuva@123"
         )
         if conexao.is_connected():
             # print ("Conexao com o banco realizada!") - Removi essa parte para não aparecer toda vez após a conexão ao banco
