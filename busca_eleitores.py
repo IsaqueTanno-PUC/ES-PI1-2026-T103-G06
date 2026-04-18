@@ -8,7 +8,7 @@ def busca_eleitor ():
         conexao = conectar()
         cursor = conexao.cursor()
 
-        print ("\n\n=====Busca de eleitor=====\n")
+        print ("\n\n========Busca de eleitor========\n")
         escolha = input ("Deseja encontrar um eleitor por:\n[1]CPF\n[2]Titulo de eleitor\n ").replace(".", "").replace("-", "")
         if escolha == "1":
             cpf = input ("\nDigite o CPF do eleitor para busca: ")
