@@ -3,6 +3,7 @@ import conexaoBD
 import cadastro_eleitores
 import busca_eleitores
 import listagemeleitores
+import remover_eleitor
 
 escolha1,escolha2,escolha3=-1,-1,-1
 
@@ -33,6 +34,8 @@ while(escolha1!=3):
                 #onde é possivel realizar o cadastro de um novo eleitor
                 if escolha2 ==1:
                     cadastro_eleitores.cadastrar_eleitor()
+                if escolha2 == 3:
+                    remover_eleitor.remover_eleitor()
                 if escolha2 == 4:
                     busca_eleitores.busca_eleitor()
                 if escolha2 == 5:
