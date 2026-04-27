@@ -3,7 +3,7 @@ import conexaoBD
 import cadastro_eleitores
 import busca_eleitores
 import listagemeleitores
-import remover_eleitor
+import remocao_eleitores
 
 escolha1,escolha2,escolha3=-1,-1,-1
 
