@@ -3,6 +3,7 @@ import conexaoBD
 import cadastro_eleitores
 import busca_eleitores
 escolha1,escolha2,escolha3=-1,-1,-1
+import listagemeleitores
 
 
 while(escolha1!=3):
@@ -34,6 +35,8 @@ while(escolha1!=3):
                     cadastro_eleitores.cadastrar_eleitor()
                 if escolha2 == 4:
                     busca_eleitores.busca_eleitor()
+                if escolha2 == 5:
+                    listar_eleitor()
 
         case 2:
             while(escolha2!=4):
