@@ -35,7 +35,7 @@ while(escolha1!=3):
                 if escolha2 ==1:
                     cadastro_eleitores.cadastrar_eleitor()
                 if escolha2 == 3:
-                    remover_eleitor.remover_eleitor()
+                    remocao_eleitores.remover_eleitor()
                 if escolha2 == 4:
                     busca_eleitores.busca_eleitor()
                 if escolha2 == 5:
