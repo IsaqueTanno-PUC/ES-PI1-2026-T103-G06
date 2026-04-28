@@ -1,6 +1,17 @@
 from conexaoBD import conectar
 
 def busca_eleitor ():
+
+    """
+    Realiza a busca dos eleitores cadastrados no banco de dados.
+
+    Args.: input do usuario de CPF ou TE dentro da função para realizar a busca.
+
+    Return: caso o eleitor seja encontrado no banco, é retornado os campos referentes ao mesmo (Nome (str),
+    titulo de eleitor (str) e CPF (str)), 
+    caso contrario, é impresso na tela "eleitor não encontrado(str).".   
+    """
+
     conexao = None
     cursor = None
 
