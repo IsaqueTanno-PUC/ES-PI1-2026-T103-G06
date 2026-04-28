@@ -53,7 +53,7 @@ def cadastrar_eleitor():
             print ("CPF inválido!")
             return
 
-        eleitor_mesario = input("Você será mesário?\n1 - Sim\n0 - Não")
+        eleitor_mesario = input("Você será mesário?\n1 - Sim\n0 - Não\n")
         while eleitor_mesario not in ["0", "1"]:
             print("Digite um dos valores: 0 ou 1")
             eleitor_mesario = input("Você será mesário?\n1 - Sim\n0 - Não")
