@@ -57,7 +57,7 @@ def listar_candidatos():
                 print(f"Votos: {votos}")
                 cont=cont+1
 
-            print("\nTOTAL ELEITORES: ", len(candidatos))
+            print("\nTOTAL CANDIDATOS: ", len(candidatos))
             
     except Exception as erro:
         print("Erro inesperado: ", erro)

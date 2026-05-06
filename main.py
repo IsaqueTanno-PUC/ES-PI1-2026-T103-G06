@@ -4,6 +4,7 @@ import cadastro_eleitores
 import busca_eleitores
 import listagemeleitores
 import remocao_eleitores
+import abertura_votacao
 
 escolha1,escolha2,escolha3=-1,-1,-1
 
@@ -54,12 +55,14 @@ while(escolha1!=3):
                 escolha3 = -1
                 match escolha2:
                     case 1:
-                        while(escolha3!=2):
-                            escolha3=-1
-                            print("\nSistema de Votação")
-                            print("1 - Votar")
-                            print("2 - Fechar Sistema de Votação")
-                            escolha3= menu.number_option_input(1,2)
+                        abertura=abertura_votacao.abrir_votacao()
+                        if abertura==True:
+                            while(escolha3!=2):
+                                escolha3=-1
+                                print("\nSistema de Votação")
+                                print("1 - Votar")
+                                print("2 - Fechar Sistema de Votação")
+                                escolha3= menu.number_option_input(1,2)
                     case 2:
                         while(escolha3!=3):
                             escolha3=-1
