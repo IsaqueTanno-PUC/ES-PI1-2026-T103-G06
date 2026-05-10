@@ -1,6 +1,7 @@
 from conexaoBD import conectar
 import validar
 import validacao_titulo
+from auditoria import registro_log
 
 def editar_eleitor_menu():
     conexao=conectar()
@@ -58,6 +59,7 @@ def editar_eleitor_menu():
                 nome2=nome2+nome[cont]
                 cont=cont+1
             if nome1.isalpha()==False or nome2.isalpha()==False:
+                registro_log("Nome invalido durante atualização do cadastro do eleitor.")
                 print("Nome inválido! Digite apenas com letras e, pelo menos, coloque o segundo nome")
                 errado=True
             else:
@@ -111,6 +113,7 @@ def editar_eleitor_menu():
             conexao.commit()
             atualizado = cursor.rowcount > 0
             if atualizado:
+                registro_log(f"Eleitor {eleitor[1]} atualizado na base de dados.")
                 print("Dados atualizados com sucesso!")
             else:
                 print("Nenhuma alteração foi feita.")
