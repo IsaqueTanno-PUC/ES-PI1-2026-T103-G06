@@ -5,6 +5,7 @@ import busca_eleitores
 import listagemeleitores
 import remocao_eleitores
 import abertura_votacao
+import edicao_eleitores
 
 escolha1,escolha2,escolha3=-1,-1,-1
 
@@ -35,6 +36,8 @@ while(escolha1!=3):
                 #onde é possivel realizar o cadastro de um novo eleitor
                 if escolha2 ==1:
                     cadastro_eleitores.cadastrar_eleitor()
+                if escolha2 == 2:
+                    edicao_eleitores.editar_eleitor_menu()
                 if escolha2 == 3:
                     remocao_eleitores.remover_eleitor()
                 if escolha2 == 4:
