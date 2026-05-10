@@ -1,0 +1,11 @@
+2026-05-10 18:17:52.092475, tentativa de cadastro com CPF invalido!
+2026-05-10 18:20:17.363248, tentativa de cadastro com CPF invalido!
+2026-05-10 18:20:45.661262, tentativa de cadastro com CPF invalido!
+10/05/2026 18:32:01, Usuario digitou um nome invalido
+10/05/2026 18:41:53, Eleitor Rafael Barbosa Fernandes removido
+10/05/2026 18:59:39, Eleitor cadastrado na base de dados
+10/05/2026 19:00:34, ABERTURA: Votação iniciada com sucesso. Total de votos zerado.
+10/05/2026 19:06:32, Eleitor Mauro Carvel da Paixão cadastrado na base de dados
+10/05/2026 19:07:29, Usuario digitou apenas o primeiro nome ou caracteres que não são letras
+10/05/2026 19:07:53, tentativa de cadastro com CPF já cadastrado na base de dados
+10/05/2026 19:09:27, Eleitor Mauro Carvel da Paixão removido

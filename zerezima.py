@@ -1,5 +1,7 @@
 import conexaoBD
 from conexaoBD import conectar
+import auditoria
+from auditoria import registro_log
 
 def zerar_votos():
     """
@@ -44,6 +46,7 @@ def listar_candidatos():
         candidatos=cursor.fetchall()
 
         if len(candidatos)==0:
+            registro_log("Votação não realizada, nenhum candidato cadastrado!")
             print("NENHUM CANDIDATO CADASTRADO")
 
         else:

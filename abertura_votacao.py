@@ -1,6 +1,8 @@
 import conexaoBD
 from conexaoBD import conectar
 import zerezima
+import auditoria
+from auditoria import registro_log
 
 def abrir_votacao():
     """
@@ -48,6 +50,7 @@ def abrir_votacao():
             try:
                 chave=input("Digite a chave de acesso: ").strip()
                 if chave.upper()=="CANCELAR":
+                    registro_log("Operação de abertura de votação cancelada pelo usuario")
                     print("Processo cancelado...")
                     return False
                 
@@ -67,16 +70,19 @@ def abrir_votacao():
 
 
         if resultado==None:
+            registro_log("ALERTA: Tentativa de acesso negado\nUsuario não encontrado!")
             print("Não foi possível abrir o sistema de votação! Usuário não encontrado!")
             return False
         
         elif resultado[3]==0:
+            registro_log("ALERTA: Tentativa de acesso negado\nEleitor não é mesário!")
             print("Não foi possível abrir o sistema de votação! Eleitor não é mesário!")
             return False
         
         elif resultado[3]==1:       # O sistema é aberto aqui
             zerezima.zerar_votos()
             zerezima.listar_candidatos()
+            registro_log("ABERTURA: Votação iniciada com sucesso. Total de votos zerado.")
             x=input("\nZerézima realizado! Sistema de votação será iniciado. Pressione ENTER para continuar ")
             return True
 

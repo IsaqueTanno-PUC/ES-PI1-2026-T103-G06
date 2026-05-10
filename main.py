@@ -71,6 +71,9 @@ while(escolha1!=3):
                             print("2 - Protocolos de Votação")
                             print("3 - Voltar")
                             escolha3= menu.number_option_input(1,3)
+                            if escolha3 == 1:
+                                with open ("logs_ocorrencias.txt", "r", encoding="utf-8") as arquivo:     
+                                    print(arquivo.read())
                     case 3:
                         while(escolha3!=5): # Resultados da Votação
                             escolha3=-1

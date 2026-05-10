@@ -1,4 +1,6 @@
 from conexaoBD import conectar
+import auditoria
+from auditoria import registro_log
  
 def remover_eleitor():
     """
@@ -48,6 +50,7 @@ def remover_eleitor():
             cursor.execute(sql, (titulo,))
  
         else:
+            registro_log("Operacao de remoção de eleitor cancelado pelo usuário")
             print("Operação cancelada.")
             return
  
@@ -84,12 +87,15 @@ def remover_eleitor():
             sql_delete = "DELETE FROM eleitores WHERE eleitor_id = %s"
             cursor.execute(sql_delete, (eleitor_id,))
             conexao.commit()
+            registro_log(f"Eleitor {resultado[1]} removido")
             print("Eleitor removido com sucesso!")
  
         else:
+            registro_log("Remoção de eleitor cancelada pelo usuário")
             print("Remoção cancelada.")
  
     except Exception as erro:
+        registro_log("Erro durante a remoção da base de dados", erro)
         print("Erro: ", erro)
  
     finally:

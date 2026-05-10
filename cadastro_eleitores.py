@@ -4,6 +4,8 @@ import validar
 import validacao_titulo
 import gerar_chave
 import mysql.connector
+import auditoria
+from auditoria import registro_log
 
 def cadastrar_eleitor():
     """
@@ -46,6 +48,7 @@ def cadastrar_eleitor():
                 cont = cont + 1
 
             if nome1.isalpha() == False or nome2.isalpha() == False:
+                registro_log("Usuario digitou apenas o primeiro nome ou caracteres que não são letras")
                 print("Nome inválido! Digite apenas letras e coloque pelo menos o segundo nome.")
 
                 conti_nome = int(input("Deseja continuar o cadastro?\n1 - Continuar\n2 - Voltar\n"))
@@ -62,6 +65,7 @@ def cadastrar_eleitor():
          eleitor_titulo = input ("Digite seu titulo de eleitor: ").replace(".", "").replace("-", "")
          if validacao_titulo.validar_titulo(eleitor_titulo)==False:
              print ("Titulo de Eleitor inválido!")
+             registro_log("tentativa de cadastro com titulo de Eleitor inválido")
              conti_titulo = int(input("Deseja continuar o cadastro?\n1 - Continuar\n2 - Voltar\n"))
              if conti_titulo == 2:
                  return
@@ -78,10 +82,11 @@ def cadastrar_eleitor():
         while continuar_cpf == 1:
          eleitor_cpf = input ("Digite seu CPF: ").replace(".", "").replace("-", "")
          if validar.cpf(eleitor_cpf)==False:
-             print ("CPF inválido!")
-             conti_cpf = int(input("Deseja continuar o cadastro?\n1 - Continuar\n2 - Voltar\n"))
-             if conti_cpf == 2:
-                 return
+            registro_log("tentativa de cadastro com CPF invalido!")
+            print ("CPF inválido!")
+            conti_cpf = int(input("Deseja continuar o cadastro?\n1 - Continuar\n2 - Voltar\n"))
+            if conti_cpf == 2:
+                return
          
          else: 
              continuar_cpf = 0
@@ -105,6 +110,7 @@ def cadastrar_eleitor():
         conexao.commit()
 
         print("Eleitor cadastrado com sucesso!")
+        registro_log(f"Eleitor", "{eleitor_nome}", "cadastrado na base de dados")
         print("Sua chave de acesso é:", chaveacesso)
 
     except mysql.connector.Error as erro:
@@ -112,10 +118,13 @@ def cadastrar_eleitor():
             texto_erro = str(erro).lower()
 
             if "cpf" in texto_erro:
+                registro_log("tentativa de cadastro com CPF já cadastrado na base de dados")
                 print("CPF já cadastrado!")
             elif "titulo" in texto_erro:
+                registro_log("tentativa de cadastro com Titulo de eleitor já cadastrado na base de dados")
                 print("Título de eleitor já cadastrado!")
             else:
+                registro_log("tentativa de cadastro com dados duplicados")
                 print("Dado duplicado já cadastrado!")
         else:
             print("Erro no banco:", erro)
