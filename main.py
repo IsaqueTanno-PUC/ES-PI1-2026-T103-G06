@@ -2,8 +2,12 @@ import menu
 import conexaoBD
 import cadastro_eleitores
 import busca_eleitores
-escolha1,escolha2,escolha3=-1,-1,-1
+import listagemeleitores
+import remocao_eleitores
+import abertura_votacao
+import edicao_eleitores
 
+escolha1,escolha2,escolha3=-1,-1,-1
 
 while(escolha1!=3):
     escolha1=-1
@@ -32,8 +36,14 @@ while(escolha1!=3):
                 #onde é possivel realizar o cadastro de um novo eleitor
                 if escolha2 ==1:
                     cadastro_eleitores.cadastrar_eleitor()
+                if escolha2 == 2:
+                    edicao_eleitores.editar_eleitor_menu()
+                if escolha2 == 3:
+                    remocao_eleitores.remover_eleitor()
                 if escolha2 == 4:
                     busca_eleitores.busca_eleitor()
+                if escolha2 == 5:
+                    listagemeleitores.listar_eleitores()
 
         case 2:
             while(escolha2!=4):
@@ -48,12 +58,14 @@ while(escolha1!=3):
                 escolha3 = -1
                 match escolha2:
                     case 1:
-                        while(escolha3!=2):
-                            escolha3=-1
-                            print("\nSistema de Votação")
-                            print("1 - Votar")
-                            print("2 - Fechar Sistema de Votação")
-                            escolha3= menu.number_option_input(1,2)
+                        abertura=abertura_votacao.abrir_votacao()
+                        if abertura==True:
+                            while(escolha3!=2):
+                                escolha3=-1
+                                print("\nSistema de Votação")
+                                print("1 - Votar")
+                                print("2 - Fechar Sistema de Votação")
+                                escolha3= menu.number_option_input(1,2)
                     case 2:
                         while(escolha3!=3):
                             escolha3=-1
@@ -62,6 +74,9 @@ while(escolha1!=3):
                             print("2 - Protocolos de Votação")
                             print("3 - Voltar")
                             escolha3= menu.number_option_input(1,3)
+                            if escolha3 == 1:
+                                with open ("logs_ocorrencias.txt", "r", encoding="utf-8") as arquivo:     
+                                    print(arquivo.read())
                     case 3:
                         while(escolha3!=5): # Resultados da Votação
                             escolha3=-1
