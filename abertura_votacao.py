@@ -81,10 +81,15 @@ def abrir_votacao():
         
         elif resultado[3]==1:       # O sistema é aberto aqui
             zerezima.zerar_votos()
-            zerezima.listar_candidatos()
-            registro_log("ABERTURA: Votação iniciada com sucesso. Total de votos zerado.")
-            x=input("\nZerézima realizado! Sistema de votação será iniciado. Pressione ENTER para continuar ")
-            return True
+            x=zerezima.listar_candidatos()
+            if x==True:
+                registro_log("ABERTURA: Votação iniciada com sucesso. Total de votos zerado.")
+                x=input("\nZerézima realizado! Sistema de votação será iniciado. Pressione ENTER para continuar ")
+                return True
+            else:
+                registro_log("ABERTURA: Votação NÃO iniciada. Nenhum candidato cadastrado.")
+                x=input("\nNenhum candidato cadastrado! Sistema de votação NÃO será iniciado. Pressione ENTER para continuar ")
+                return False
 
         return False
 

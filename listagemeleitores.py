@@ -17,7 +17,7 @@ def listar_eleitores():
         if len(eleitores)==0:
             print("NENHUM ELEITOR CADASTRADO")
         else:
-            print("LISTA DE ELEITORES")
+            print("\nLISTA DE ELEITORES\n")
             cont=0
             while cont<len(eleitores):
                 nome,titulo,cpf,mesario=eleitores[cont]
@@ -28,7 +28,7 @@ def listar_eleitores():
                 print("Nome: ", nome)
                 print("Título: ", titulo)
                 print("CPF: ", cpf)
-                print("Mesário: ", status_mesario)
+                print("Mesário: ", status_mesario,"\n")
                 cont=cont+1
             print("TOTAL ELEITORES: ", len(eleitores))
     except Exception as erro:

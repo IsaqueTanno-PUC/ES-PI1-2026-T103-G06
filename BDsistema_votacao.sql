@@ -24,5 +24,5 @@ CREATE TABLE votos (
 	voto_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
     voto_horario DATETIME,
     voto_candnumero INT,
-    voto_protocolo INT
+    voto_protocolo VARCHAR(12)
 );

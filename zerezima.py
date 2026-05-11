@@ -27,7 +27,7 @@ def listar_candidatos():
     Args:
         Nenhum
     Returns:
-        Exibição dos candidatos e seus votos no terminal
+        bool: False, caso não haja candidatos; True, quando houver candidatos & Exibição dos candidatos e seus votos no terminal
     """
     try:
         conexao=conectar()
@@ -48,6 +48,7 @@ def listar_candidatos():
         if len(candidatos)==0:
             registro_log("Votação não realizada, nenhum candidato cadastrado!")
             print("NENHUM CANDIDATO CADASTRADO")
+            return False
 
         else:
             print("LISTA DE CANDIDATOS")
@@ -61,6 +62,7 @@ def listar_candidatos():
                 cont=cont+1
 
             print("\nTOTAL CANDIDATOS: ", len(candidatos))
+            return True
             
     except Exception as erro:
         print("Erro inesperado: ", erro)

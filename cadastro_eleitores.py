@@ -110,7 +110,7 @@ def cadastrar_eleitor():
         conexao.commit()
 
         print("Eleitor cadastrado com sucesso!")
-        registro_log(f"Eleitor", "{eleitor_nome}", "cadastrado na base de dados")
+        registro_log(f"Eleitor {eleitor_nome} cadastrado na base de dados")
         print("Sua chave de acesso é:", chaveacesso)
 
     except mysql.connector.Error as erro:

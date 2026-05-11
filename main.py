@@ -6,6 +6,7 @@ import listagemeleitores
 import remocao_eleitores
 import abertura_votacao
 import edicao_eleitores
+import registro_votos
 
 escolha1,escolha2,escolha3=-1,-1,-1
 
@@ -26,7 +27,7 @@ while(escolha1!=3):
                 # Gerenciamento
                 print("\nGERENCIAMENTO\n")
                 print("1 - Cadastro de Eleitores")
-                print("2 - Editar dados de Eleitoes")
+                print("2 - Editar dados de Eleitores")
                 print("3 - Remover Eleitor")
                 print("4 - Buscar Eleitor por título/CPF")
                 print("5 - Listagem de Eleitores")
@@ -66,6 +67,11 @@ while(escolha1!=3):
                                 print("1 - Votar")
                                 print("2 - Fechar Sistema de Votação")
                                 escolha3= menu.number_option_input(1,2)
+                                match escolha3:
+                                    case 1:
+                                        registro_votos.eleitor_iniciar_voto()
+                                    case 2:
+                                        pass
                     case 2:
                         while(escolha3!=3):
                             escolha3=-1
