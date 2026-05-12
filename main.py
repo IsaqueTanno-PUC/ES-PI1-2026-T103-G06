@@ -71,7 +71,11 @@ while(escolha1!=3):
                                     case 1:
                                         registro_votos.eleitor_iniciar_voto()
                                     case 2:
-                                        pass
+                                        encerrado = encerramento_votacao.encerrar_votacao()
+                                        if encerrado == True:
+                                            escolha3 = 2  
+                                        else:
+                                            escolha3 = -1  
                     case 2:
                         while(escolha3!=3):
                             escolha3=-1
