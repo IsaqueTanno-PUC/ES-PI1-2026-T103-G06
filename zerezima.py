@@ -14,7 +14,9 @@ def zerar_votos():
     try:
         conexao=conectar()
         cursor=conexao.cursor()
-        cursor.execute("TRUNCATE TABLE votos")
+        cursor.execute("TRUNCATE TABLE votos;")
+        cursor.execute("UPDATE eleitores SET eleitor_situacao=0 WHERE eleitor_situacao=1;")
+        conexao.commit()
     except Exception as erro:
         print("Erro inesperado: ", erro)
     finally:
