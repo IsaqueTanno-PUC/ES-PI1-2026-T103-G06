@@ -7,6 +7,7 @@ import remocao_eleitores
 import abertura_votacao
 import edicao_eleitores
 import registro_votos
+import encerramento_votacao
 
 escolha1,escolha2,escolha3=-1,-1,-1
 
